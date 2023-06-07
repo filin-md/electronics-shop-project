@@ -44,3 +44,9 @@ def test_string_to_number(cls_obj):
     assert cls_obj.string_to_number("1234") == 1234
     assert cls_obj.string_to_number("13.43") == 13
 
+def test_repr(cls_obj):
+    assert repr(cls_obj) == "Item('Флешка', 500, 10)"
+
+def test_str(cls_obj):
+    assert str(cls_obj) == "Флешка"
+
