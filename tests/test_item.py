@@ -2,10 +2,16 @@
 import pytest
 
 from src.item import Item
+from src.phone import Phone
+
 
 @pytest.fixture()
 def cls_obj():
     return Item("Флешка", 500, 10)
+
+@pytest.fixture()
+def phone_obj():
+    return Phone("Siemens S65", 50000, 1, 1)
 
 
 # def test_item_props():
@@ -50,3 +56,9 @@ def test_repr(cls_obj):
 def test_str(cls_obj):
     assert str(cls_obj) == "Флешка"
 
+
+def test_add(cls_obj, phone_obj):
+    assert cls_obj + phone_obj == 11
+    with pytest.raises(ValueError):
+        phone_obj + 1
+        cls_obj + "string"
