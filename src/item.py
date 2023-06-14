@@ -30,6 +30,12 @@ class Item:
         return self.__name
 
 
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        raise ValueError('Складывть можно только экземпяры класса')
+
+
     @property
     def name(self):
         return self.__name
