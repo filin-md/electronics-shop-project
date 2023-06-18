@@ -8,6 +8,8 @@ class Item:
     pay_rate = 1.0
     all = []
 
+
+
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
         Создание экземпляра класса item.
@@ -20,6 +22,7 @@ class Item:
         self.price = price
         self.quantity = quantity
         Item.all.append(self)
+        super().__init__()
 
 
     def __repr__(self):
@@ -33,7 +36,7 @@ class Item:
     def __add__(self, other):
         if isinstance(other, self.__class__):
             return self.quantity + other.quantity
-        raise ValueError('Складывть можно только экземпяры класса')
+        raise AttributeError('Складывть можно только экземпяры класса')
 
 
     @property
